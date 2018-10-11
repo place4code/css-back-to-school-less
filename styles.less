@@ -1,0 +1,52 @@
+//##############################################
+//Variablen:
+@main-text-color: #2e2e2e;
+@header-size: 30px;
+@header-color: #252525;
+//Tekst und andere Eigenschaften kann ich in den Variablen halten.
+@text: " Ipsum?";
+@main-font: 'Montserrat', sans-serif; //200, 400, 600
+
+//##############################################
+//mixins:
+.par {
+    padding: 8px;
+    color: #3d3d3d;
+    line-height: 1.4;
+    font-weight: 200;
+}
+.headers {
+    color: @header-color;
+    font-weight: 400;
+    padding: 8px;
+}
+//##############################################
+
+.content {
+    p {
+    color: #3d3d3d;
+    line-height: 0.8*2; // Ich kann in less multiplizieren
+        a {
+        text-decoration: none;
+        }
+    }
+}
+
+p {
+    .par; //mixin verwenden:
+}
+
+body {
+    color: @main-text-color;
+    font-family: @main-font;
+}
+
+h1 {
+    .headers;
+    font-size: @header-size;
+}
+
+h1::after {
+    content: @text;
+}
+
